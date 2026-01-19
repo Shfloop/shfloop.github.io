@@ -1,202 +1,267 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Embedded / backend projects: computer vision robotics, voxel engine, game modding, custom CPU." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ben Boland— Portfolio</title>
+    <meta
+      name="description"
+      content="Embedded / backend projects: computer vision robotics, voxel engine, game modding, custom CPU."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="brand">
-        <h1>Your Name</h1>
-        <p class="tagline">Embedded + backend / systems. Rust, firmware, performance, real-time pipelines.</p>
-      </div>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <h1>Your Name</h1>
+          <p class="tagline">
+            Embedded + backend / systems. Rust, firmware, performance, real-time
+            pipelines.
+          </p>
+        </div>
 
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Focus</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Focus</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <div class="links">
-        <a href="https://github.com/Shfloop">GitHub</a>
-        <a href="https://www.linkedin.com/in/ben-boland-a359a2231/">LinkedIn</a>
-        <a href="mailto:benbolan01@gmail.com">Email</a>
-        <a href="./resume.pdf">Resume (PDF)</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="content" class="container">
-    <section class="intro">
-      <p>
-        I build systems where performance and correctness matter: embedded control loops, low-latency vision,
-        and backend-style architecture with strong boundaries and observability.
-      </p>
-      <p class="subtle">
-        Below are selected projects with short technical notes and links to code/write-ups.
-      </p>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-        <a href="/divot-filler.html" class ="fill-div">
-      <article class="project">
-        
-        <div class="project-head">
-          <h3>Golf Course Divot Filler — Machine Vision + Robotics</h3>
-          <span class="meta">Apr 2025 – Sep 2025</span>
-        </div>
-        <p class="one-liner">
-          End-to-end robotics system: real-time divot detection + tracking, embedded control, and calibration tooling.
-        </p>
-        <ul>
-          <li>Sole developer and system designer for a multithreaded CV pipeline in <strong>Rust</strong> with low-latency constraints.</li>
-          <li>Optimized inference using <strong>RK3588 NPU</strong>, tuning pipelines/threading for production-level throughput.</li>
-          <li>Wrote <strong>embedded Rust</strong> firmware for <strong>STM32</strong> to control motors/servos with deterministic timing.</li>
-          <li>Built an interactive, low-latency <strong>2D visualization</strong> tool for debugging/calibration of perception + control.</li>
-          <li>Designed and fabricated the mechanical dispensing system (hardware ↔ firmware ↔ software integration).</li>
-        </ul>
-        
-        <div class="tech">
-          <span class="pill">Rust</span><span class="pill">STM32</span><span class="pill">Embedded</span>
-          <span class="pill">Computer Vision</span><span class="pill">RK3588 NPU</span><span class="pill">Python</span>
-        </div>
-        
-    
-      </article>
-      </a>
-      <a href="/voxel-game.html" class ="fill-div">
-      <article class="project">
-        <div class="project-head">
-          <h3>Voxel Game Engine (In Progress)</h3>
-          <span class="meta">Apr 2025 – Present</span>
-        </div>
-        <p class="one-liner">
-          A voxel engine focused on world streaming, high-throughput meshing, and GPU-driven rendering.
-        </p>
-        <ul>
-          <li>Architecting in <strong>Rust</strong> with <strong>Bevy ECS</strong>, emphasizing scalable chunk streaming.</li>
-          <li>Reduced geometry/draw overhead via <strong>vertex pulling</strong> and <strong>GPU indirect draws</strong>.</li>
-          <li>Building fast spatial queries for chunk/block addressing, neighborhood updates, and interactive editing.</li>
-          <li>Profiling CPU/GPU/memory hotspots and iterating on data layout + scheduling for responsiveness.</li>
-        </ul>
-        <div class="tech">
-          <span class="pill">Rust</span><span class="pill">Bevy ECS</span><span class="pill">WebGPU</span>
-          <span class="pill">Rendering</span><span class="pill">Performance</span>
-        </div>
-        
-      </article>
-      </a>
-      <a href="/SimplyShaders.html" class ="fill-div">
-      <article class="project">
-        <div class="project-head">
-          <h3>Java Game Modding — Custom Shader Pipeline</h3>
-          <span class="meta">Jul 2024 – Feb 2025</span>
-        </div>
-        <p class="one-liner">
-          Runtime-swappable shaders integrated into a game’s rendering pipeline.
-        </p>
-        <ul>
-          <li>Modified game code + rendering flow to support hot-swapping and custom shader stages.</li>
-          <li>Designed features enabling highly configurable user shaders and runtime customization.</li>
-        </ul>
-        <div class="tech">
-          <span class="pill">Java</span><span class="pill">OpenGL</span><span class="pill">Rendering Pipeline</span>
-        </div>
-        
-      </article>
-    </a>
-    <a href="/16BitCPU.html" class ="fill-div">
-      <article class="project">
-        <div class="project-head">
-          <h3>16-bit 5-Stage Pipelined RISC CPU</h3>
-          <span class="meta">Sep 2023 – Mar 2024</span>
-        </div>
-        <p class="one-liner">
-          Discrete-logic CPU design with custom ISA, plus Rust tooling.
-        </p>
-        <ul>
-          <li>Designed a pipelined <strong>RISC CPU</strong> + ISA built using <strong>74xx</strong> logic and custom PCBs.</li>
-          <li>Developed an <strong>assembler</strong> and supporting tooling in <strong>Rust</strong>.</li>
-        </ul>
-        <div class="tech">
-          <span class="pill">Digital Logic</span><span class="pill">PCB Design</span><span class="pill">Rust</span>
-          <span class="pill">Computer Architecture</span>
-        </div>
-        
-      </article>
-      </a>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Focus</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Systems / Embedded</h3>
-          <ul>
-            <li>Rust firmware (STM32), deterministic timing</li>
-            <li>Sensor/actuator integration, control loops</li>
-            <li>Hardware ↔ software bring-up and debugging</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Performance Engineering</h3>
-          <ul>
-            <li>Multithreading, low-latency pipelines</li>
-            <li>Data layout + profiling driven iteration</li>
-            <li>GPU-driven rendering, draw call reduction</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Backend Mindset</h3>
-          <ul>
-            <li>Clear boundaries, simple interfaces</li>
-            <li>Reliability, observability, debuggability</li>
-            <li>Tooling and automation around systems</li>
-          </ul>
+        <div class="links">
+          <a href="https://github.com/Shfloop">GitHub</a>
+          <a href="https://www.linkedin.com/in/ben-boland-a359a2231/"
+            >LinkedIn</a
+          >
+          <a href="mailto:benbolan01@gmail.com">Email</a>
+          <a href="./resume.pdf">Resume (PDF)</a>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p>
-        I like building end-to-end systems: from low-level hardware and firmware up through software architecture and
-        visualization/debug tooling. My projects tend to start as prototypes and evolve into engineered systems with
-        measurable performance goals.
-      </p>
-      <p class="subtle">
-        I’m especially interested in roles around embedded systems, systems programming, infrastructure/backend, and performance-sensitive software.
-      </p>
-    </section>
+    <main id="content" class="container">
+      <section class="intro">
+        <p>
+          I build systems where performance and correctness matter: embedded
+          control loops, low-latency vision, and backend-style architecture with
+          strong boundaries and observability.
+        </p>
+        <p class="subtle">
+          Below are selected projects with short technical notes, click to view
+          more details.
+        </p>
+      </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>
-        Best way to reach me: <a href="mailto:benbolan01@gmail.com">benbolan01@gmail.com</a>
-      </p>
-      <p class="subtle">
-        Other links: <a href="https://github.com/Shfloop">GitHub</a> •
-        <a href="https://www.linkedin.com/in/ben-boland-a359a2231/">LinkedIn</a>
-      </p>
-    </section>
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <a href="/divot-filler.html" class="fill-div">
+          <article class="project">
+            <div class="project-head">
+              <h3>Golf Course Divot Filler — Machine Vision + Robotics</h3>
+              <span class="meta">Apr 2025 – Sep 2025</span>
+            </div>
+            <p class="one-liner">
+              End-to-end robotics system: real-time divot detection + tracking,
+              embedded control, and calibration tooling.
+            </p>
+            <ul>
+              <li>
+                Sole developer and system designer for a multithreaded CV
+                pipeline in <strong>Rust</strong> with low-latency constraints.
+              </li>
+              <li>
+                Optimized inference using <strong>RK3588 NPU</strong>, tuning
+                pipelines/threading for production-level throughput.
+              </li>
+              <li>
+                Wrote <strong>embedded Rust</strong> firmware for
+                <strong>STM32</strong> to control motors/servos with
+                deterministic timing.
+              </li>
+              <li>
+                Built an interactive, low-latency
+                <strong>2D visualization</strong> tool for debugging/calibration
+                of perception + control.
+              </li>
+              <li>
+                Designed and fabricated the mechanical dispensing system
+                (hardware ↔ firmware ↔ software integration).
+              </li>
+            </ul>
 
-    <footer class="footer">
-      <p class="subtle">© <span id="year"></span> Ben Boland. Built as a static site.</p>
-    </footer>
-  </main>
+            <div class="tech">
+              <span class="pill">Rust</span><span class="pill">STM32</span
+              ><span class="pill">Embedded</span>
+              <span class="pill">Computer Vision</span
+              ><span class="pill">RK3588 NPU</span
+              ><span class="pill">Python</span>
+            </div>
+          </article>
+        </a>
+        <a href="/16BitCPU.html" class="fill-div">
+          <article class="project">
+            <div class="project-head">
+              <h3>16-bit 5-Stage Pipelined RISC CPU</h3>
+              <span class="meta">Sep 2023 – Mar 2024</span>
+            </div>
+            <p class="one-liner">
+              Discrete-logic CPU design with custom ISA, plus Rust tooling.
+            </p>
+            <ul>
+              <li>
+                Designed a pipelined <strong>RISC CPU</strong> + ISA built using
+                <strong>74xx</strong> logic and custom PCBs.
+              </li>
+              <li>
+                Developed an <strong>assembler</strong> and supporting tooling
+                in <strong>Rust</strong>.
+              </li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Digital Logic</span
+              ><span class="pill">PCB Design</span
+              ><span class="pill">Rust</span>
+              <span class="pill">Computer Architecture</span>
+            </div>
+          </article>
+        </a>
+        <a href="/voxel-game.html" class="fill-div">
+          <article class="project">
+            <div class="project-head">
+              <h3>Voxel Game Engine (In Progress)</h3>
+              <span class="meta">Apr 2025 – Present</span>
+            </div>
+            <p class="one-liner">
+              A voxel engine focused on world streaming, high-throughput
+              meshing, and GPU-driven rendering.
+            </p>
+            <ul>
+              <li>
+                Architecting in <strong>Rust</strong> with
+                <strong>Bevy ECS</strong>, emphasizing scalable chunk streaming.
+              </li>
+              <li>
+                Reduced geometry/draw overhead via
+                <strong>vertex pulling</strong> and
+                <strong>GPU indirect draws</strong>.
+              </li>
+              <li>
+                Building fast spatial queries for chunk/block addressing,
+                neighborhood updates, and interactive editing.
+              </li>
+              <li>
+                Profiling CPU/GPU/memory hotspots and iterating on data layout +
+                scheduling for responsiveness.
+              </li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Rust</span><span class="pill">Bevy ECS</span
+              ><span class="pill">WebGPU</span>
+              <span class="pill">Rendering</span
+              ><span class="pill">Performance</span>
+            </div>
+          </article>
+        </a>
+        <a href="/SimplyShaders.html" class="fill-div">
+          <article class="project">
+            <div class="project-head">
+              <h3>Java Game Modding — Custom Shader Pipeline</h3>
+              <span class="meta">Jul 2024 – Feb 2025</span>
+            </div>
+            <p class="one-liner">
+              Runtime-swappable shaders integrated into a game’s rendering
+              pipeline.
+            </p>
+            <ul>
+              <li>
+                Modified game code + rendering flow to support hot-swapping and
+                custom shader stages.
+              </li>
+              <li>
+                Designed features enabling highly configurable user shaders and
+                runtime customization.
+              </li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Java</span><span class="pill">OpenGL</span
+              ><span class="pill">Rendering Pipeline</span>
+            </div>
+          </article>
+        </a>
+      </section>
 
-  <script>
-    // tiny optional convenience; remove if you want pure no-JS
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+      <section id="skills" class="section">
+        <h2>Focus</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Systems / Embedded</h3>
+            <ul>
+              <li>Rust firmware (STM32), deterministic timing</li>
+              <li>Sensor/actuator integration, control loops</li>
+              <li>Hardware ↔ software bring-up and debugging</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Performance Engineering</h3>
+            <ul>
+              <li>Multithreading, low-latency pipelines</li>
+              <li>Data layout + profiling driven iteration</li>
+              <li>GPU-driven rendering, draw call reduction</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Backend Mindset</h3>
+            <ul>
+              <li>Clear boundaries, simple interfaces</li>
+              <li>Reliability, observability, debuggability</li>
+              <li>Tooling and automation around systems</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About</h2>
+        <p>
+          I like building end-to-end systems: from low-level hardware and
+          firmware up through software architecture and visualization/debug
+          tooling. My projects tend to start as prototypes and evolve into
+          engineered systems with measurable performance goals.
+        </p>
+        <p class="subtle">
+          I’m especially interested in roles around embedded systems, systems
+          programming, infrastructure/backend, and performance-sensitive
+          software.
+        </p>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>
+          Best way to reach me:
+          <a href="mailto:benbolan01@gmail.com">benbolan01@gmail.com</a>
+        </p>
+        <p class="subtle">
+          Other links: <a href="https://github.com/Shfloop">GitHub</a> •
+          <a href="https://www.linkedin.com/in/ben-boland-a359a2231/"
+            >LinkedIn</a
+          >
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p class="subtle">
+          © <span id="year"></span> Ben Boland. Built as a static site.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      // tiny optional convenience; remove if you want pure no-JS
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
