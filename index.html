@@ -49,71 +49,82 @@
           control loops, low-latency vision, and backend-style architecture with
           strong boundaries and observability.
         </p>
+      </section>
+      <section class="section">
+        <h2>Gallery</h2>
+        <section class="gallery">
+          <div class="gallery-item">
+            <a target="_blank" href="img/divot_filler_running.png">
+              <img
+                src="img/gallery/divot_filler_running_downscaled.png"
+                alt="Divot Filling Machine"
+                width="600"
+                height="400"
+              />
+            </a>
+            <a href="#divot-filler">
+              <div class="desc">Divot Filling Machine</div></a
+            >
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img/16BitCPU.jpg">
+              <img
+                src="img/gallery/16BitCPU_scaled.jpg"
+                alt="Mountains"
+                width="600"
+                height="400"
+              />
+            </a>
+            <a href="#16bitcpu">
+              <div class="desc">16-bit CPU</div>
+            </a>
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img/block_lighting.png">
+              <img
+                src="img/gallery/block_lighting_downscaled.png"
+                alt="Custom Voxel Engine Block Lighting"
+                width="600"
+                height="400"
+              />
+            </a>
+            <a href="#voxel-game">
+              <div class="desc">Custom Voxel Game Engine</div>
+            </a>
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="/img/shaders_on.png">
+              <img
+                src="img/gallery/shaders_on_downscaled.png"
+                alt="SimplyShaders Graphics Mod"
+                width="600"
+                height="400"
+              />
+            </a>
+            <a href="#simply-shaders">
+              <div class="desc">SimplyShaders Mod</div></a
+            >
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img/">
+              <img
+                src="img/gallery/gg_gambit_downscaled.png"
+                alt="Mountains"
+                width="600"
+                height="400"
+              />
+            </a>
+            <a href="#web-app"> <div class="desc">GG Gambit - Web App</div></a>
+          </div>
+        </section>
         <p class="subtle">
           Below are selected projects with short technical notes, click to view
           more details.
         </p>
-      </section>
-      <section class="gallery">
-        <div class="gallery-item">
-          <a target="_blank" href="img/divot_filler_running.png">
-            <img
-              src="img/gallery/divot_filler_running_downscaled.png"
-              alt="Divot Filling Machine"
-              width="600"
-              height="400"
-            />
-          </a>
-          <div class="desc">Divot Filling Machine</div>
-        </div>
-
-        <div class="gallery-item">
-          <a target="_blank" href="img/16BitCPU.jpg">
-            <img
-              src="img/gallery/16BitCPU_scaled.jpg"
-              alt="Mountains"
-              width="600"
-              height="400"
-            />
-          </a>
-          <div class="desc">16-bit CPU</div>
-        </div>
-
-        <div class="gallery-item">
-          <a target="_blank" href="img/block_lighting.png">
-            <img
-              src="img/gallery/block_lighting_downscaled.png"
-              alt="Custom Voxel Engine Block Lighting"
-              width="600"
-              height="400"
-            />
-          </a>
-          <div class="desc">Custom Voxel Game Engine</div>
-        </div>
-
-        <div class="gallery-item">
-          <a target="_blank" href="/img/shaders_on.png">
-            <img
-              src="img/gallery/shaders_on_downscaled.png"
-              alt="SimplyShaders Graphics Mod"
-              width="600"
-              height="400"
-            />
-          </a>
-          <div class="desc">SimplyShaders Mod</div>
-        </div>
-
-        <div class="gallery-item">
-          <a target="_blank" href="img/">
-            <img
-              src="img/gallery/gg_gambit_downscaled.png"
-              alt="Mountains"
-              width="600"
-              height="400"
-            />
-          </a>
-          <div class="desc">GG Gambit - Web App</div>
-        </div>
       </section>
 
       <section id="projects" class="section">
@@ -165,7 +176,7 @@
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" id="16bitcpu">
           <div class="project-head">
             <h3>16-bit 5-Stage Pipelined RISC CPU</h3>
             <span class="meta">Sep 2023 – Mar 2024</span>
@@ -192,7 +203,7 @@
             <a href="/16BitCPU.html">Read More</a>
           </div>
         </article>
-        <article class="project">
+        <article class="project" id="voxel-game">
           <div class="project-head">
             <h3>Voxel Game Engine (In Progress)</h3>
             <span class="meta">Apr 2025 – Present</span>
@@ -229,9 +240,9 @@
             <a href="/voxel-game.html">Read More </a>
           </div>
         </article>
-        <article class="project">
+        <article class="project" id="simply-shaders">
           <div class="project-head">
-            <h3>Java Game Modding — Custom Shader Pipeline</h3>
+            <h3>SimplyShaders — Java Game Mod</h3>
             <span class="meta">Jul 2024 – Feb 2025</span>
           </div>
           <p class="one-liner">
@@ -257,7 +268,7 @@
             <a href="https://github.com/Shfloop/SimplyShaders">GitHub Repo </a>
           </div>
         </article>
-        <article class="project">
+        <article class="project" id="web-app">
           <div class="project-head">
             <h3>GG Gambit - Academic Web Application Project</h3>
             <span class="meta">Oct 2025 – Dec 2025</span>
@@ -268,17 +279,23 @@
           </p>
           <ul>
             <li>
-              Modified game code + rendering flow to support hot-swapping and
-              custom shader stages.
+              Architected containerized microservices deployed via Cloud Run
             </li>
             <li>
-              Designed features enabling highly configurable user shaders and
-              runtime customization.
+              Created SQL database schema for app functionality and user
+              accounts
+            </li>
+            <li>
+              Implemented secure authentication flows using OAuth 2.0 and OWASP
+              practices.
             </li>
           </ul>
           <div class="tech">
-            <span class="pill">Java</span><span class="pill">OpenGL</span
-            ><span class="pill">Rendering Pipeline</span>
+            <span class="pill">TypeScript</span
+            ><span class="pill">Google Cloud Platform (GCP)</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Microservices</span>
           </div>
           <div class="project-links">
             <a href="/SimplyShaders.html">Read More </a> •
