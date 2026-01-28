@@ -6,7 +6,7 @@
     <title>Divot Filling Machine</title>
     <meta
       name="description"
-      content="[1–2 sentence description of the project]."
+      content="Automated golf course divot filling machine."
     />
     <link rel="stylesheet" href="../styles.css" />
   </head>
@@ -34,7 +34,7 @@
       <!-- Hero -->
       <section class="box">
         <div class="box-title">
-          <span>Automated Golf Course Dibot Filling Machine</span>
+          <span>Automated Golf Course Divot Filling Machine</span>
           <span class="meta">
             Apr 2025 – Sep 2025 • Prototype w/ continued plans</span
           >
@@ -42,15 +42,15 @@
 
         <div class="box-body">
           <p class="lead">
-            This machine is intended to be used by golf course maintanence crews
+            This machine is intended to be used by golf course maintenance crews
             to speed up and reduce man power needed to fill divots. The
-            intention is for this to be pulled behind a ground maintaince
+            intention is for this to be pulled behind a ground maintenance
             vehicle and automatically fill in divots with sand / divot mix.
           </p>
           <p class="meta">
-            As of writing this I dont have any videos of it running as i changed
-            cameras from when it ran on a raspberry pi. I need to retrain a
-            model in the spring with the new camera
+            As of writing this I don't have any videos of it running on real
+            grass as i changed cameras from when it ran on a raspberry pi. I
+            need to retrain a model in the spring with the new camera.
           </p>
 
           <div class="media">
@@ -61,8 +61,7 @@
               alt="[Alt text describing the image]"
             />
             <div class="caption">
-              machine running with 2D Visualizer and laptop as interface over
-              VNC
+              machine running with 2D Visualizer and viewing on laptop over VNC
             </div>
             <img
               src="img/divot_filler_running.png"
@@ -78,59 +77,32 @@
               <div class="panel-body">
                 <ul class="kv">
                   <li>
-                    <span class="k">Role</span
-                    ><span class="v"
-                      >[Sole developer / Team of X / Lead on Y]</span
+                    <span class="k">Goal:</span
+                    ><span class="v">
+                      Create a machine capable of automating divot
+                      filling.</span
                     >
                   </li>
                   <li>
-                    <span class="k">Goal</span
-                    ><span class="v">[The problem you solved]</span>
-                  </li>
-                  <li>
-                    <span class="k">Constraints</span
-                    ><span class="v"
-                      >[Latency / power / memory / cost / etc]</span
+                    <span class="k">Constraints:</span
+                    ><span class="v">
+                      Low latency, power efficiency, reliablibily,</span
                     >
                   </li>
                   <li>
-                    <span class="k">Stack</span
-                    ><span class="v">[Rust, STM32, RK3588, etc]</span>
+                    <span class="k">Stack:</span
+                    ><span class="v">
+                      Rust, STM32, RK3588, YOLOv11n seg model</span
+                    >
                   </li>
                 </ul>
 
                 <div class="tags">
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
+                  <span class="pill">Rust</span>
+                  <span class="pill">Computer Vision</span>
+                  <span class="pill">Embedded Programming</span>
+                  <span class="pill">Robotics</span>
                 </div>
-
-                <div class="links">
-                  <a href="[REPO URL]">Code</a>
-                  <a href="[WRITEUP URL]">Write-up</a>
-                  <a href="[DEMO URL]">Demo/Video</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- At-a-glance -->
-            <div class="panel">
-              <div class="panel-title">At a Glance</div>
-              <div class="panel-body">
-                <ul>
-                  <li>
-                    <strong>Key contribution:</strong> [e.g., multithreaded
-                    pipeline + deterministic control loop]
-                  </li>
-                  <li>
-                    <strong>Most interesting part:</strong> [e.g., hitting
-                    latency targets under hardware constraints]
-                  </li>
-                  <li>
-                    <strong>What I learned:</strong> [e.g., profiling-driven
-                    design, dataflow boundaries, etc]
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -144,7 +116,7 @@
           <p>
             The machine is a 3ft by 3ft mini trailer intended to be hauled
             around by golf course grounds crew carts. It runs on an Orange pi 5
-            ultra making use of the RK3588 SOC to run inference on the
+            ultra making use of the RK3588 SoC to run inference on the
             integrated NPU. The divot filling mechanism is split up into slices
             where each slice is responsible for filling a roughly 5 in area. The
             motors and servos are controlled via an STM32F407 microcontroller
@@ -154,7 +126,7 @@
             Currently the overal proejct is still a prototype but I would
             consider the core of the software to be complete. The model still
             needs more data and training but the inference and processing
-            latency are all good enough for finished product.
+            latency are all good enough for a finished product.
           </p>
           <ul>
             <li>[Outcome / capability #1]</li>
@@ -170,41 +142,71 @@
         <div class="box-body">
           <p>
             The machine is powered by an Orange Pi 5 ultra mainly because i make
-            heavy use of the onboard NPU of the RK3588 SOC. The Rust based
+            heavy use of the onboard NPU of the RK3588 SoC. The Rust based
             software has seperate threads for inference, data processing,
             communication with microcontroller, and visualization / monitoring.
-            All of the electronics are then contolled by a STM32F407, which
+          </p>
+          <p>
+            The model was originally created by a custom rig and a raspberry pi
+            5 and pi cam. I then did manual data annotation and created a masked
+            dataset of around 500 images. Training was done via my home computer
+            using YOLOv11n-seg. This would have been good enough had i stayed on
+            the raspberry pi but the segmentation model was too expensive to run
+            on the CPU alone. This is how i ended up using the RK3588 and doing
+            a whole lot of extra work to make something that ran correctly.
+          </p>
+          <p>
+            Luckily the RKNPU already had examples and a way to convert a YOLO
+            model to one that can run on the NPUbut it took a few days to
+            understand the problems and find the solution. It took a few more
+            days to get everything running because I didn't realize just how much
+            The yolo runtime was running inference. There already were
+            example code in C++ but I had to take a deep dive into how models
+            are processed to get it to run correctly.
+
+          </p>
+          <p>
+            All of the electronics are then controlled by a STM32F407, which
             communicates to the Orange Pi 5 over SPI. The model is a custom YOLO
             v11 semantic segmentation model then converted to run in RKNN
             runtime. The sand dispensing is still work in progress but currently
             its a auger style feed into a chute which can redirect the sand left
             / right.
+
           </p>
 
           <!-- Optional diagram -->
-          <div class="media small">
-            <img
-              src="[DIAGRAM IMAGE PATH]"
-              alt="[Alt text for architecture diagram]"
-            />
-            <div class="caption">
-              [Caption: architecture / pipeline diagram]
-            </div>
-          </div>
 
           <h3 class="h3">Components</h3>
           <ul>
-            <li><strong>[Component A]</strong> — [responsibility]</li>
-            <li><strong>[Component B]</strong> — [responsibility]</li>
-            <li><strong>[Component C]</strong> — [responsibility]</li>
-          </ul>
+            <li>
+              <strong>Inference Pipeline</strong> — Find fillable divots & send
+              formatted data to data processing.
+            </li>
+            <li>
+              <strong>Data Processing</strong> — Maintain a list of active
+              divots, split them into fillable sections, & and send commands to
+              communication.
+            </li>
+            <li>
+              <strong>Communication</strong> — Communicate with microcontroller
+              over spi, command movement of actuators & calculate machine.
+              odomytry.
+            </li>
+            <li>
+              <strong>Visualization / monitoring</strong> — Maintain an updated
+              state of the machine through a 2d visualization window.
+            </li>
 
-          <h3 class="h3">Data Flow</h3>
-          <ol>
-            <li>[Step 1: input]</li>
-            <li>[Step 2: processing]</li>
-            <li>[Step 3: output/control]</li>
-          </ol>
+            <li>
+              <strong>Microcontroller - STM32F407</strong> — Control actuators
+              from commands, ensure devices are functioning properly.
+            </li>
+            <li>
+              <strong>Robotics / hardware</strong> — Dispense sand accurately
+              into desired positions.
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -213,97 +215,35 @@
         <div class="box-title">Engineering Challenges</div>
         <div class="box-body">
           <div class="callout">
-            <div class="callout-title">Challenge #1 — [Short label]</div>
+            <div class="callout-title">
+              Challenge #1 — Figuring out how to bring my idea to life
+            </div>
             <div class="callout-body">
-              <p><strong>Problem:</strong> [What was hard / why it mattered]</p>
-              <p><strong>Approach:</strong> [How you solved it]</p>
               <p>
-                <strong>Result:</strong> [What improved / what you achieved]
+                <strong>Problem:</strong> I don't have a large background with
+                this kind of stuff so most things were learned as I tried things
+                out.
+              </p>
+              <p>
+                <strong>Approach:</strong> Sticking with the project was a large
+                part of solving it, The machine went through 2 different
+                versions before I was able to make something that I think could
+                work.
+              </p>
+              <p>
+                <strong>Result:</strong> I went from a simple Python script and
+                a wooden frame to a multithreaded custom software and a 3ft x3ft
+                metal frame which i think could go somewhere.
               </p>
             </div>
           </div>
 
-          <div class="callout">
-            <div class="callout-title">Challenge #2 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <div class="callout-title">Challenge #3 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-        </div>
+          
       </section>
 
-      <!-- Performance / Metrics -->
-      <section class="box">
-        <div class="box-title">Performance & Results</div>
-        <div class="box-body">
-          <ul class="metrics">
-            <li>
-              <span class="k">Latency</span
-              ><span class="v">[e.g., 30ms end-to-end]</span>
-            </li>
-            <li>
-              <span class="k">Throughput</span
-              ><span class="v">[e.g., 30 FPS sustained]</span>
-            </li>
-            <li>
-              <span class="k">Hardware</span
-              ><span class="v">[e.g., RK3588 + STM32]</span>
-            </li>
-            <li>
-              <span class="k">Reliability</span
-              ><span class="v">[e.g., runs X hours without failure]</span>
-            </li>
-          </ul>
+     
 
-          <p class="subtle">
-            [If you have charts/screenshots, link or embed them below.]
-          </p>
-
-          <div class="media small">
-            <img
-              src="[PERF SCREENSHOT PATH]"
-              alt="[Alt text for profiling/performance]"
-            />
-            <div class="caption">
-              [Caption: profiling screenshot / benchmark result]
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section class="box">
-        <div class="box-title">Gallery</div>
-        <div class="box-body">
-          <div class="gallery">
-            <a href="[FULL IMAGE 1]"
-              ><img src="[THUMB 1]" alt="[Alt text 1]"
-            /></a>
-            <a href="[FULL IMAGE 2]"
-              ><img src="[THUMB 2]" alt="[Alt text 2]"
-            /></a>
-            <a href="[FULL IMAGE 3]"
-              ><img src="[THUMB 3]" alt="[Alt text 3]"
-            /></a>
-            <a href="[FULL IMAGE 4]"
-              ><img src="[THUMB 4]" alt="[Alt text 4]"
-            /></a>
-          </div>
-
-          <p class="subtle">
-            Tip: keep thumbnails ~600px wide for fast loading.
-          </p>
+          
         </div>
       </section>
 
@@ -313,20 +253,24 @@
         <div class="box-body">
           <h3 class="h3">What went well</h3>
           <ul>
-            <li>[Good thing #1]</li>
-            <li>[Good thing #2]</li>
+            <li>I managed to create a working prototype.</li>
+            <li>I'm very happy with the software design of the machine.</li>
           </ul>
 
           <h3 class="h3">What I’d improve</h3>
           <ul>
-            <li>[Improvement #1]</li>
-            <li>[Improvement #2]</li>
+            <li>
+              The inference pipeline is fast enough but it could be optimized
+              more if there is no longer a bottleneck with sand dispensing.
+            </li>
+            <li>The sand dispensing mechanism needs to be greatly improved.</li>
           </ul>
 
           <h3 class="h3">Next steps</h3>
           <ul>
-            <li>[Roadmap item #1]</li>
-            <li>[Roadmap item #2]</li>
+            <li>In the spring, get a new dataset with the new camera.</li>
+            <li>Run more tests of the machine on a golf course.</li>
+            <li>Finalize physical / hardware design.</li>
           </ul>
         </div>
       </section>
@@ -335,7 +279,7 @@
       <section class="footer-nav">
         <a href="../index.html#projects">← Back to projects</a>
         <span class="subtle">/</span>
-        <a href="[NEXT PROJECT LINK]">Next project →</a>
+        <a href="/16BitCPU.html">Next project →</a>
       </section>
 
       <footer class="footer">
