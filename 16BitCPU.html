@@ -42,13 +42,10 @@
 
         <div class="box-body">
           <p class="lead">
-            This is a custom 16-bit CPU i designed and built as a succesor to my
+            This is a custom 16-bit CPU I designed and built as a succesor to my
             previous 8-bit CISC CPU build.
           </p>
-          <p class="meta">
-            - 5 stage pipeline with data forwarding - 16 general purpose
-            registers - seperated instruction memory - banked memory up to 1MB
-          </p>
+          <p class="meta"></p>
 
           <!-- HERO MEDIA: use either video OR image -->
           <!-- Option A: Video -->
@@ -58,81 +55,21 @@
             <source src="[VIDEO PATH]" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div class="caption">[Caption: what this clip shows]</div>
+          
         </div>
         -->
 
           <!-- Option B: Image -->
           <div class="media">
+            <div class="caption">
+              This was a test of an added memory mapped LCD running at around
+              140Hz.
+            </div>
             <iframe
               width="640"
               height="480"
               src="https://www.youtube.com/embed/JXrLSQVq08A"
             ></iframe>
-          </div>
-
-          <div class="two-col">
-            <!-- Quick Facts -->
-            <div class="panel">
-              <div class="panel-title">Quick Facts</div>
-              <div class="panel-body">
-                <ul class="kv">
-                  <li>
-                    <span class="k">Role</span
-                    ><span class="v"
-                      >[Sole developer / Team of X / Lead on Y]</span
-                    >
-                  </li>
-                  <li>
-                    <span class="k">Goal</span
-                    ><span class="v">[The problem you solved]</span>
-                  </li>
-                  <li>
-                    <span class="k">Constraints</span
-                    ><span class="v"
-                      >[Latency / power / memory / cost / etc]</span
-                    >
-                  </li>
-                  <li>
-                    <span class="k">Stack</span
-                    ><span class="v">[Rust, STM32, RK3588, etc]</span>
-                  </li>
-                </ul>
-
-                <div class="tags">
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                </div>
-
-                <div class="links">
-                  <a href="[REPO URL]">Code</a>
-                  <a href="[WRITEUP URL]">Write-up</a>
-                  <a href="[DEMO URL]">Demo/Video</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- At-a-glance -->
-            <div class="panel">
-              <div class="panel-title">At a Glance</div>
-              <div class="panel-body">
-                <ul>
-                  <li>
-                    <strong>Key contribution:</strong> [e.g., multithreaded
-                    pipeline + deterministic control loop]
-                  </li>
-                  <li>
-                    <strong>Most interesting part:</strong> [e.g., hitting
-                    latency targets under hardware constraints]
-                  </li>
-                  <li>
-                    <strong>What I learned:</strong> [e.g., profiling-driven
-                    design, dataflow boundaries, etc]
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -142,14 +79,21 @@
         <div class="box-title">Overview</div>
         <div class="box-body">
           <p>
-            [Explain the project in plain language. 4–8 sentences. What does it
-            do? Who/what uses it?]
+            I had reliability issues with by prevous 8-bit CPU, and wanted to
+            make PCB's. Wanting to improve the design I ended up completly
+            redesigning the CPU as a 16-bit CPU with a 5-stage pipeline. The
+            goal of this project was to try and maximize the capability of the
+            CPU, while minimising the chip count. This is most noticible in
+            instruction decoding where I was able to keep the different
+            instruction formats to 7 with room for expansion if needed
           </p>
 
           <ul>
-            <li>[Outcome / capability #1]</li>
-            <li>[Outcome / capability #2]</li>
-            <li>[Outcome / capability #3]</li>
+            <li>5-stage pipeline with data forwarding and hazard resolution</li>
+            <li>Improved ALU supporting bit-wise operations</li>
+            <li>Up to 16 general purpose registers</li>
+            <li>20 MB of banked adderssable memory</li>
+            <li>Seperated instruction and data memory</li>
           </ul>
         </div>
       </section>
