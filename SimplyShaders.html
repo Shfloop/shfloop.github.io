@@ -91,12 +91,6 @@
                   </li>
                 </ul>
 
-                <div class="tags">
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                </div>
-
                 <div class="links">
                   From
                   <a href="https://github.com/Shfloop/SimplyShaders"
@@ -163,93 +157,34 @@
 
           <h3 class="h3">Components</h3>
           <ul>
-            <li><strong>[Component A]</strong> — [responsibility]</li>
-            <li><strong>[Component B]</strong> — [responsibility]</li>
-            <li><strong>[Component C]</strong> — [responsibility]</li>
+            <li>
+              <strong>Configurable Render Pipeline</strong> — Changes what the
+              pipeline should be doing based on the loaded shaderpack
+            </li>
+            <li>
+              <strong>Shaderpack Parsing</strong> — Loads a shaderpack folder or
+              zip file and formats it to be able to configure the render
+              pipeline
+            </li>
+            <li>
+              <strong>User Interface</strong> — Provides a customizable UI for
+              individual shaderpacks which allow packs to define custom settings
+              to be applied during render pipeline configuration
+            </li>
           </ul>
 
           <h3 class="h3">Data Flow</h3>
           <ol>
-            <li>[Step 1: input]</li>
-            <li>[Step 2: processing]</li>
-            <li>[Step 3: output/control]</li>
+            <li>
+              User selects which shader pack they want to use or edit the
+              settings of the pack they are using
+            </li>
+            <li>The rendder pipeline is changed to run the pack</li>
           </ol>
         </div>
       </section>
 
       <!-- Engineering Challenges -->
-      <section class="box">
-        <div class="box-title">Engineering Challenges</div>
-        <div class="box-body">
-          <div class="callout">
-            <div class="callout-title">Challenge #1 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> [What was hard / why it mattered]</p>
-              <p><strong>Approach:</strong> [How you solved it]</p>
-              <p>
-                <strong>Result:</strong> [What improved / what you achieved]
-              </p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <div class="callout-title">Challenge #2 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <div class="callout-title">Challenge #3 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Performance / Metrics -->
-      <section class="box">
-        <div class="box-title">Performance & Results</div>
-        <div class="box-body">
-          <ul class="metrics">
-            <li>
-              <span class="k">Latency</span
-              ><span class="v">[e.g., 30ms end-to-end]</span>
-            </li>
-            <li>
-              <span class="k">Throughput</span
-              ><span class="v">[e.g., 30 FPS sustained]</span>
-            </li>
-            <li>
-              <span class="k">Hardware</span
-              ><span class="v">[e.g., RK3588 + STM32]</span>
-            </li>
-            <li>
-              <span class="k">Reliability</span
-              ><span class="v">[e.g., runs X hours without failure]</span>
-            </li>
-          </ul>
-
-          <p class="subtle">
-            [If you have charts/screenshots, link or embed them below.]
-          </p>
-
-          <div class="media small">
-            <img
-              src="[PERF SCREENSHOT PATH]"
-              alt="[Alt text for profiling/performance]"
-            />
-            <div class="caption">
-              [Caption: profiling screenshot / benchmark result]
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Gallery -->
       <section class="box">
@@ -269,10 +204,6 @@
               ><img src="[THUMB 4]" alt="[Alt text 4]"
             /></a>
           </div>
-
-          <p class="subtle">
-            Tip: keep thumbnails ~600px wide for fast loading.
-          </p>
         </div>
       </section>
 
@@ -282,20 +213,36 @@
         <div class="box-body">
           <h3 class="h3">What went well</h3>
           <ul>
-            <li>[Good thing #1]</li>
-            <li>[Good thing #2]</li>
+            <li>
+              I learned a lot about engine development, graphics, and java
+              modding
+            </li>
+            <li>I made a mod that works and finished what I set out to do.</li>
           </ul>
 
           <h3 class="h3">What I’d improve</h3>
           <ul>
-            <li>[Improvement #1]</li>
-            <li>[Improvement #2]</li>
+            <li>
+              Their are many features missing that would make creating
+              shaderpacks easier and more enjoyable so if i continue that is
+              something that would be needed.
+            </li>
+            <li>
+              I would like to make it a more abstracted pipeline because
+              currently its a modification of the base games pipeline resulting
+              in massive changes when the games pipeline changes. Making it more
+              abstract and reimplimenting the games pipeline would make it a lot
+              easier to update along side the game.
+            </li>
           </ul>
 
           <h3 class="h3">Next steps</h3>
           <ul>
-            <li>[Roadmap item #1]</li>
-            <li>[Roadmap item #2]</li>
+            <li>Work on catching back up with the game.</li>
+            <li>
+              I've got other projects to work on but if there is more interest I
+              would continue updating.
+            </li>
           </ul>
         </div>
       </section>
@@ -308,7 +255,7 @@
       </section>
 
       <footer class="footer">
-        <div class="subtle">© <span id="year"></span> [YOUR NAME]</div>
+        <div class="subtle">© <span id="year"></span> Ben Boland</div>
       </footer>
     </main>
 
