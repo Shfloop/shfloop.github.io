@@ -34,8 +34,8 @@
       <!-- Hero -->
       <section class="box">
         <div class="box-title">
-          <span>[PROJECT NAME]</span>
-          <span class="meta">[DATES] • [STATUS: Completed / In Progress]</span>
+          <span>GG Gambit Web App</span>
+          <span class="meta">Oct - Dec 2025 • Completed</span>
         </div>
 
         <div class="box-body">
@@ -74,37 +74,26 @@
               <div class="panel-body">
                 <ul class="kv">
                   <li>
-                    <span class="k">Role</span
-                    ><span class="v"
-                      >[Sole developer / Team of X / Lead on Y]</span
+                    <span class="k">Role: </span
+                    ><span class="v">Backend Developer and Cloud Deployer</span>
+                  </li>
+                  <li>
+                    <span class="k">Goal: </span
+                    ><span class="v">Create a Web App</span>
+                  </li>
+
+                  <li>
+                    <span class="k">Stack: </span
+                    ><span class="v">
+                      Node.js, TypeScript, MySQL, Google Cloud Platform</span
                     >
-                  </li>
-                  <li>
-                    <span class="k">Goal</span
-                    ><span class="v">[The problem you solved]</span>
-                  </li>
-                  <li>
-                    <span class="k">Constraints</span
-                    ><span class="v"
-                      >[Latency / power / memory / cost / etc]</span
-                    >
-                  </li>
-                  <li>
-                    <span class="k">Stack</span
-                    ><span class="v">[Rust, STM32, RK3588, etc]</span>
                   </li>
                 </ul>
 
-                <div class="tags">
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                  <span class="pill">[TAG]</span>
-                </div>
-
                 <div class="links">
-                  <a href="[REPO URL]">Code</a>
-                  <a href="[WRITEUP URL]">Write-up</a>
-                  <a href="[DEMO URL]">Demo/Video</a>
+                  <a href="https://github.com/Shfloop/GG_Gambit_IT391_Project"
+                    >Code</a
+                  >
                 </div>
               </div>
             </div>
@@ -115,16 +104,18 @@
               <div class="panel-body">
                 <ul>
                   <li>
-                    <strong>Key contribution:</strong> [e.g., multithreaded
-                    pipeline + deterministic control loop]
+                    <strong>Key contribution:</strong> Backend Functionality,
+                    User Creation / Authentication, Cloud Deployment, Database
+                    Design
                   </li>
                   <li>
-                    <strong>Most interesting part:</strong> [e.g., hitting
-                    latency targets under hardware constraints]
+                    <strong>Most interesting part:</strong> Configuring the web
+                    app to be deployed in the cloud and spliting servercies to
+                    allow for scaling.
                   </li>
                   <li>
-                    <strong>What I learned:</strong> [e.g., profiling-driven
-                    design, dataflow boundaries, etc]
+                    <strong>What I learned:</strong> Backend Web Development,
+                    Cloud Deployment, Database design
                   </li>
                 </ul>
               </div>
@@ -150,12 +141,6 @@
             password login. Authenticated users are then able to place bets, see
             betting histroy, and update profile settings.
           </p>
-
-          <ul>
-            <li>[Outcome / capability #1]</li>
-            <li>[Outcome / capability #2]</li>
-            <li>[Outcome / capability #3]</li>
-          </ul>
         </div>
       </section>
 
@@ -205,123 +190,60 @@
               style="width: 55vw; min-width: 330px"
               alt="[Alt text for architecture diagram]"
             />
-            <div class="caption">
-              [Caption: architecture / pipeline diagram]
-            </div>
+            <div class="caption">[Caption: cloud architecture diagram]</div>
           </div>
 
           <h3 class="h3">Components</h3>
           <ul>
-            <li><strong>[Component A]</strong> — [responsibility]</li>
-            <li><strong>[Component B]</strong> — [responsibility]</li>
-            <li><strong>[Component C]</strong> — [responsibility]</li>
+            <li>
+              <strong>Web Application</strong> — All Core App functionality,
+              User creationg / authentication APIs, Placing bets, viewing /
+              updating profile information.
+              <div class="tags">
+                <a
+                  class="links"
+                  href="https://github.com/Shfloop/GG_Gambit_IT391_Project/blob/main/docs/endpoints.md"
+                  >Backend APIs Available</a
+                >
+              </div>
+            </li>
+            <li>
+              <strong>Match Updating Service</strong> — Manages our active bets
+              and live matches by scheduling and checking for match conclusions.
+              <div class="tags">
+                <a
+                  class="links"
+                  href="https://github.com/Shfloop/GG_Gambit_Service"
+                  >Repo Link</a
+                >
+              </div>
+            </li>
+            <li>
+              <strong>Web Scraper</strong> — Scrapes vlr.gg to get information
+              for upcoming valorant matches.
+
+              <div class="tags">
+                <a class="links" href="https://github.com/Shfloop/vlrscraper"
+                  >Repo Link</a
+                >
+              </div>
+            </li>
           </ul>
 
           <h3 class="h3">Data Flow</h3>
           <ol>
-            <li>[Step 1: input]</li>
-            <li>[Step 2: processing]</li>
-            <li>[Step 3: output/control]</li>
+            <li>User clicks on betting tab</li>
+            <li>
+              Server retrieves current upcoming and live matches, while also
+              checking the web scraper for new matches
+            </li>
+            <li>User places a bet and the server verifies the request</li>
+            <li>
+              The match updating service triggereed through scheduled tasks will
+              trigger when the match concludes and updates any user bets that
+              have been placed
+            </li>
           </ol>
-        </div>
-      </section>
-
-      <!-- Engineering Challenges -->
-      <section class="box">
-        <div class="box-title">Engineering Challenges</div>
-        <div class="box-body">
-          <div class="callout">
-            <div class="callout-title">Challenge #1 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> [What was hard / why it mattered]</p>
-              <p><strong>Approach:</strong> [How you solved it]</p>
-              <p>
-                <strong>Result:</strong> [What improved / what you achieved]
-              </p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <div class="callout-title">Challenge #2 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <div class="callout-title">Challenge #3 — [Short label]</div>
-            <div class="callout-body">
-              <p><strong>Problem:</strong> ...</p>
-              <p><strong>Approach:</strong> ...</p>
-              <p><strong>Result:</strong> ...</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Performance / Metrics -->
-      <section class="box">
-        <div class="box-title">Performance & Results</div>
-        <div class="box-body">
-          <ul class="metrics">
-            <li>
-              <span class="k">Latency</span
-              ><span class="v">[e.g., 30ms end-to-end]</span>
-            </li>
-            <li>
-              <span class="k">Throughput</span
-              ><span class="v">[e.g., 30 FPS sustained]</span>
-            </li>
-            <li>
-              <span class="k">Hardware</span
-              ><span class="v">[e.g., RK3588 + STM32]</span>
-            </li>
-            <li>
-              <span class="k">Reliability</span
-              ><span class="v">[e.g., runs X hours without failure]</span>
-            </li>
-          </ul>
-
-          <p class="subtle">
-            [If you have charts/screenshots, link or embed them below.]
-          </p>
-
-          <div class="media small">
-            <img
-              src="[PERF SCREENSHOT PATH]"
-              alt="[Alt text for profiling/performance]"
-            />
-            <div class="caption">
-              [Caption: profiling screenshot / benchmark result]
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section class="box">
-        <div class="box-title">Gallery</div>
-        <div class="box-body">
-          <div class="gallery">
-            <a href="[FULL IMAGE 1]"
-              ><img src="[THUMB 1]" alt="[Alt text 1]"
-            /></a>
-            <a href="[FULL IMAGE 2]"
-              ><img src="[THUMB 2]" alt="[Alt text 2]"
-            /></a>
-            <a href="[FULL IMAGE 3]"
-              ><img src="[THUMB 3]" alt="[Alt text 3]"
-            /></a>
-            <a href="[FULL IMAGE 4]"
-              ><img src="[THUMB 4]" alt="[Alt text 4]"
-            /></a>
-          </div>
-
-          <p class="subtle">
-            Tip: keep thumbnails ~600px wide for fast loading.
-          </p>
         </div>
       </section>
 
@@ -331,20 +253,29 @@
         <div class="box-body">
           <h3 class="h3">What went well</h3>
           <ul>
-            <li>[Good thing #1]</li>
-            <li>[Good thing #2]</li>
+            <li>A learned and did a lot with backend development</li>
+            <li>We succesfully built the app we set out to make</li>
           </ul>
 
           <h3 class="h3">What I’d improve</h3>
           <ul>
-            <li>[Improvement #1]</li>
-            <li>[Improvement #2]</li>
+            <li>
+              Many design decisions where made because there is no public api
+              for esports matches so many systems could be improved with a
+              dedicated api over web scraping.
+            </li>
+            <li>
+              I should have built it in Java or Go, Node.js and TypeScript are
+              fine but i would have had a better time with something else.
+            </li>
           </ul>
 
           <h3 class="h3">Next steps</h3>
           <ul>
-            <li>[Roadmap item #1]</li>
-            <li>[Roadmap item #2]</li>
+            <li>
+              None, its a comleted project I also dont support gambling so I
+              wouldn't want to continue.
+            </li>
           </ul>
         </div>
       </section>
@@ -357,7 +288,7 @@
       </section>
 
       <footer class="footer">
-        <div class="subtle">© <span id="year"></span> [YOUR NAME]</div>
+        <div class="subtle">© <span id="year"></span> Ben Boland</div>
       </footer>
     </main>
 
