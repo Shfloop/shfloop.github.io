@@ -142,8 +142,51 @@
       <section class="box">
         <div class="box-title">System Architecture</div>
         <div class="box-body">
-          <p></p>
+          <h3>How The Mod Is Used</h3>
+          <p>
+            The mod is installed by launching the game with the Cosmic Quilt or
+            Puzzle Mod loader and appropriate versions. Cosmic Quilt is a fork
+            of Minecraft's Quilt mod loader configured to work with Cosmic
+            Reach, while Puzzle is a custom mod loader made for Cosmic Reach.
+          </p>
+          <p>
+            The game starts and plays normally until the user enables custom
+            shaders through a custom menu and selecting the shaderpack they want
+            to use. Each shaderpack can have a custom configuration menu that
+            can define settings and buttons to alter the pack. This allows
+            shaderpacks to include lots of different customizability by using
+            #IfDef for toggling features, or constants (which are modified by
+            the settings menu) to change any value such as changing color tones,
+            or increasing a shadow bias.
+          </p>
+          <h3>How The Mod Works</h3>
 
+          <p>
+            The current rendering in Cosmic Reach has a forward rendering
+            pipeline, where each stage builds upon the last. Each shader stage
+            writes the pixel color to one output buffer overwriting what was
+            previously there.
+          </p>
+          <p>
+            This mod converts the rendering pipeline to give shaderpacks the
+            ability to choose how it runs. The base games rendering stages still
+            happen independently and in a set order but shaderpacks can choose
+            what buffer the stage writes too. If a deferred rendering pipeline
+            is preferred, a pack can simply provide updated shaders, and define
+            buffers for normals, albedo, position. Then for each stage where
+            instead of outputting color, the shader can write to the 3 buffers
+            and a post processing shader can do the final lighting calculations.
+          </p>
+          <p>
+            Each stage can also read from the 8 buffers which creates a
+            corruption if the previous rendering stage is writing to the buffer
+            the current stage is trying to read from. This mod deals with this
+            by using 2 duplicate buffers for each rendering texture. This is a
+            achieved by ping-ponging the buffers between shader stages. This
+            approach was used by the inspiration for this mod, Minecraft's Iris
+            Shaders.
+          </p>
+          <p></p>
           <!-- Optional diagram -->
           <div class="media small">
             <img
@@ -258,9 +301,5 @@
         <div class="subtle">© <span id="year"></span> Ben Boland</div>
       </footer>
     </main>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>
